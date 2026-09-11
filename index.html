@@ -643,69 +643,162 @@
         <p class="footer-decor">Hecho con <span>♡</span> para 𝐾𝑈𝑅𝑂𝑀'𝑆 𝐹𝑈𝑅𝑌2 • Free Fire LATAM</p>
     </div>
 
-    <!-- === MODAL DE RECLUTAMIENTO === -->
-    <div class="modal-overlay" id="recruitModal">
-        <div class="modal-card">
-            <!-- Header -->
-            <div class="modal-header">
-                <div class="cat-icon">🐱‍👤</div>
-                <span class="modal-title">Reclutamiento</span>
-            </div>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Clan Femenino Free Fire LATAM — Reclutamiento abierto. Únete a Kurom's Fury 2, el mejor clan de chicas de Free Fire. Buscamos jugadoras de toda Latinoamérica.">
+    <meta name="keywords" content="clan femenino free fire, reclutamiento free fire, clan ff latam, unirse a clan free fire, clan de chicas free fire, reclutamiento ff, kurom's fury 2">
+    <meta name="author" content="Kurom's Fury 2">
+    <title>Kurom's Fury 2 — Clan Femenino Free Fire LATAM | Reclutamiento</title>
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; font-family: 'Segoe UI', sans-serif; }
+        body { background: linear-gradient(135deg, #2d1b4e, #1a1a2e); min-height: 100vh; color: white; padding: 20px; }
+        .container { max-width: 450px; margin: 0 auto; }
+        .header { text-align: center; padding: 30px 20px; }
+        h1 { font-size: 2.2rem; color: #e0c3fc; text-shadow: 0 0 15px #c084fc; }
+        .subtitulo { color: #d8b4fe; margin-top: 10px; font-size: 1rem; }
+        .card { background: rgba(255,255,255,0.05); border-radius: 20px; padding: 25px; margin-bottom: 20px; border: 1px solid rgba(192,132,252,0.3); backdrop-filter: blur(10px); }
+        h2 { color: #f0abfc; margin-bottom: 15px; font-size: 1.2rem; }
+        label { display: block; margin: 12px 0 5px; color: #ddd6fe; font-size: 0.95rem; }
+        input, select, textarea { width: 100%; padding: 12px; border-radius: 10px; border: none; background: rgba(255,255,255,0.1); color: white; font-size: 1rem; }
+        input:focus, select:focus, textarea:focus { outline: 2px solid #c084fc; }
+        button { width: 100%; padding: 15px; background: linear-gradient(90deg, #a855f7, #d946ef); border: none; border-radius: 12px; color: white; font-weight: bold; font-size: 1.1rem; margin-top: 10px; cursor: pointer; transition: 0.3s; }
+        button:hover { transform: scale(1.02); box-shadow: 0 0 20px #c084fc; }
+        .footer { text-align: center; margin-top: 30px; color: #a78bfa; font-size: 0.85rem; }
+        .mensaje-exito { display: none; background: rgba(34,197,94,0.2); border: 1px solid #22c55e; border-radius: 12px; padding: 20px; text-align: center; margin-top: 20px; }
+        .obligatorio { color: #f87171; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🐾 𝐾𝑈𝑅𝑂𝑀'𝑆 𝐹𝑈𝑅𝑌 2</h1>
+            <p class="subtitulo">Clan Femenino Free Fire LATAM — ¡Reclutamiento Abierto 2026!</p>
+        </div>
 
-            <!-- Barra de probabilidad -->
-            <div class="chance-row">
-                <span class="chance-label">Chances de ser reclutada</span>
-                <span class="chance-value" id="chancePercent">0%</span>
-            </div>
-            <div class="chance-bar-wrap">
-                <div class="chance-bar" id="chanceBar"></div>
-            </div>
-            <div class="chance-marks">
-                <span>BAJO</span>
-                <span>REGULAR</span>
-                <span>ALTO</span>
-            </div>
+        <div class="card">
+            <h2>📋 ¿Quieres unirte a nuestro clan?</h2>
+            <p style="color:#ddd6fe; margin-bottom:15px;">Somos <strong>Kurom's Fury 2</strong>, un clan solo de chicas de Free Fire para toda Latinoamérica. Si buscas un clan activo, amigable y competitivo, ¡este es tu lugar! 💜 <span class="obligatorio">*</span> = campo obligatorio</p>
+            
+            <form id="formularioClan">
+                <label>Tu Nombre / Usuario en el juego <span class="obligatorio">*</span></label>
+                <input type="text" id="nombre" placeholder="Ej: Kuromi_2026" required>
 
-            <!-- Puntos de progreso -->
-            <div class="progress-wrap">
-                <div class="progress-dots" id="progressDots"></div>
-                <span class="step-counter" id="stepText">Paso 1 de 5</span>
+                <label>ID de Jugador <span class="obligatorio">*</span></label>
+                <input type="text" id="id" placeholder="Tu ID de Free Fire" required>
+
+                <label>País de residencia <span class="obligatorio">*</span></label>
+                <input type="text" id="pais" placeholder="Ej: Colombia, México, Argentina..." required>
+
+                <label>Edad <span class="obligatorio">*</span></label>
+                <input type="number" id="edad" placeholder="Tu edad" required>
+
+                <label>Rango / Nivel <span class="obligatorio">*</span></label>
+                <select id="rango" required>
+                    <option value="">Selecciona tu rango</option>
+                    <option>Bronce</option>
+                    <option>Plata</option>
+                    <option>Oro</option>
+                    <option>Platino</option>
+                    <option>Heroico</option>
+                    <option>Gran Maestro</option>
+                </select>
+
+                <label>¿Cuánto tiempo juegas Free Fire?</label>
+                <select id="tiempo">
+                    <option>Menos de 3 meses</option>
+                    <option>3 a 6 meses</option>
+                    <option>6 meses a 1 año</option>
+                    <option>1 a 2 años</option>
+                    <option>Más de 2 años</option>
+                </select>
+
+                <label>¿Por qué quieres entrar a Kurom's Fury 2? <span class="obligatorio">*</span></label>
+                <textarea id="porque" rows="3" placeholder="Cuéntanos un poquito sobre ti..." required></textarea>
+
+                <button type="submit">✨ Enviar Postulación</button>
+            </form>
+
+            <div class="mensaje-exito" id="mensajeExito">
+                ✅ ¡Casi listo! Se abrirá WhatsApp con tu postulación.<br>
+                Solo dale a <strong>"Enviar"</strong> y te contactaremos pronto 💜🐱‍👤
             </div>
+        </div>
 
-            <!-- CONTENIDO DE PASOS -->
-            <div id="stepContent">
-                <!-- PASO 1: Edad -->
-                <div id="stepAge">
-                    <h2 class="question">¿Qué edad tenés?</h2>
-                    <p class="subtext">Seleccioná una opción para continuar</p>
-                    <div class="options">
-                        <button class="option-btn" data-value="MENOR DE 15">MENOR DE 15</button>
-                        <button class="option-btn" data-value="+15 AÑOS">+15 AÑOS</button>
-                        <button class="option-btn" data-value="+20 AÑOS">+20 AÑOS</button>
-                    </div>
-                    <button class="btn-main" id="ageNextBtn" disabled>SIGUIENTE →</button>
-                </div>
+        <div class="card">
+            <h2>🌸 Requisitos para entrar</h2>
+            <p style="color:#ddd6fe; line-height:1.8;">
+                ✅ Ser chica 👩<br>
+                ✅ Tener buena actitud y respeto 💜<br>
+                ✅ Actividad constante en el juego 📱<br>
+                ✅ Comunicación activa por Discord 🎧<br>
+                ✅ No tener reportes ni mal comportamiento 🚫<br>
+                ✅ Ser de cualquier país de LATAM 🌎
+            </p>
+        </div>
 
-                <!-- PASO 2: ID Free Fire -->
-                <div id="stepID" class="hidden">
-                    <h2 class="question">¿Cuál es tu ID de Free Fire?</h2>
-                    <p class="subtext">Ingresá tu UID — verificamos tu perfil automáticamente</p>
-                    <input type="text" class="text-input full-input" id="idInput" placeholder="Ej: 123456789">
-                    <button class="btn-main" id="idNextBtn" disabled>VERIFICAR →</button>
-                </div>
+        <div class="card">
+            <h2>🎮 Sobre Nosotras</h2>
+            <p style="color:#ddd6fe; line-height:1.8;">
+                <strong>Kurom's Fury 2</strong> es un clan femenino de Free Fire creado para reunir a jugadoras de toda Latinoamérica. Jugamos en equipo, hacemos torneos, nos apoyamos y nos divertimos juntas. 💜<br><br>
+                📍 <strong>Clan:</strong> Kurom's Fury 2<br>
+                🌎 <strong>Región:</strong> Toda Latinoamérica<br>
+                🎯 <strong>Tipo:</strong> Solo chicas
+            </p>
+        </div>
 
-                <!-- PASO 3: WhatsApp -->
-                <div id="stepWA" class="hidden">
-                    <h2 class="question">¿Cuál es tu número de WhatsApp?</h2>
-                    <p class="subtext">Seleccioná tu país y escribí tu número</p>
-                    <div class="input-group">
-                        <div class="country-selector" id="countrySelector">
-                            <span class="flag" id="selectedFlag">🇦🇷</span>
-                            <span class="country-code" id="selectedCode">+54</span>
-                        </div>
-                        <input type="tel" class="text-input" id="waInput" placeholder="Tu número de WhatsApp">
-                        
-                        <!-- Lista de países LATAM -->
-                        <div class="country-dropdown hidden" id="countryDropdown">
-                            <div class="country-option" data-flag="🇦🇷" data-code="+54">🇦🇷 Argentina +54</div>
-                            <div class="country-option" data-flag="🇧🇴" data- Odette 
+        <div class="footer">
+            🎀 𝐾𝑈𝑅𝑂𝑀'𝑆 𝐹𝑈𝑅𝑌 2 — Clan Femenino Free Fire LATAM © 2026<br>
+            🔍 Búscanos como: Clan Femenino Free Fire, Reclutamiento FF, Unirse a Clan Free Fire
+        </div>
+    </div>
+
+    <script>
+        const formulario = document.getElementById('formularioClan');
+        const mensajeExito = document.getElementById('mensajeExito');
+
+        // 👇 AQUÍ PONES TU NÚMERO DE WHATSAPP
+        const TU_NUMERO = '57312XXXXXXX'; // ⚠️ Cámbialo por tu número real!
+
+        formulario.addEventListener('submit', function(e) {
+            e.preventDefault(); // Evita que se recargue la página
+
+            // Obtener los valores del formulario
+            const nombre = document.getElementById('nombre').value;
+            const id = document.getElementById('id').value;
+            const pais = document.getElementById('pais').value;
+            const edad = document.getElementById('edad').value;
+            const rango = document.getElementById('rango').value;
+            const tiempo = document.getElementById('tiempo').value;
+            const porque = document.getElementById('porque').value;
+
+            // Armar el mensaje para WhatsApp
+            const mensaje = `🎀 *POSTULACIÓN - KUROM'S FURY 2* 🎀
+
+👤 *Nombre/Usuario:* ${nombre}
+🆔 *ID de Jugador:* ${id}
+🌎 *País:* ${pais}
+🎂 *Edad:* ${edad} años
+🏆 *Rango:* ${rango}
+⏰ *Tiempo jugando:* ${tiempo}
+
+💬 *¿Por qué quieres entrar?*
+${porque}
+
+---
+*¡Espero ser parte del clan!* 💜🐱‍👤`;
+
+            // Convertir a formato de URL y abrir WhatsApp
+            const enlaceWhatsApp = `https://wa.me/573024942877?text=${encodeURIComponent(mensaje)}`;
+            
+            // Mostrar mensaje de éxito
+            mensajeExito.style.display = 'block';
+            
+            // Abrir WhatsApp en nueva pestaña
+            window.open(enlaceWhatsApp, '_blank');
+        });
+    </script>
+</body>
+</html>
